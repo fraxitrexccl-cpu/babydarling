@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>A little something for my baby darling</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Caveat:wght@600&family=Nunito:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="stage" id="stage">
+      <canvas id="bouquet" aria-hidden="true"></canvas>
+
+      <button id="heart" aria-label="Open your surprise">
+        <svg viewBox="0 0 100 90">
+          <path
+            d="M50 88C20 62 2 44 2 26 2 12 13 2 26 2c10 0 19 6 24 15 5-9 14-15 24-15 13 0 24 10 24 24 0 18-18 36-48 62z"
+            fill="#ff4d79"
+          />
+          <path
+            d="M22 14c-8 2-13 9-13 17"
+            fill="none"
+            stroke="#ffb3c6"
+            stroke-width="4"
+            stroke-linecap="round"
+          />
+        </svg>
+      </button>
+
+      <div class="hint" id="hint">Tap the heart</div>
+    </div>
+
+    <dialog id="msg">
+      <img
+        class="gif"
+        src="dudu-bubu.gif"
+        alt=""
+        onerror="this.style.display = 'none'"
+      />
+      <h2>Just for you</h2>
+      <p>These flowers never wilt.</p>
+      <p>
+        Hello, my babbyyy darlinnggg. I know na I always give this kinds of
+        thing to you pero sana sa little efforts ko na ganito you can ganito,
+        you can feel and always remember that I will always love you no matter
+        what. Higit pa sa lahat ng nagawa ko and the things I can do for you in
+        the future, babyy ko.
+      </p>
+      <p>
+        Anddd, anoo very simple messsage lang ito my babyy. This is a gentle
+        reminder to always be gentle with yourself. You are and will alwayss be
+        enough babyy, and every single night I thank whatever is out there for
+        giving me the chance to love someone like you. Someone who is always
+        thoughtful, caring, and gentle.
+      </p>
+      <p>
+        Again, love na love kita so muchhh my babbyy darling, asawa ko, my one
+        and only, my everything, my universe, my life, my sunshine, my beloved.
+      </p>
+      <div class="row">
+        <button id="close">Close</button>
+        <button id="replay">Replay</button>
+      </div>
+    </dialog>
+
+    <script src="script.js"></script>
+  </body>
+</html>
