@@ -1,0 +1,58 @@
+:root { --bg1:#1a0a24; --bg2:#4a1d4f; --ink:#fff3f6; --plum:#4a1d4f; --pink:#ff4d79; }
+* { box-sizing: border-box; }
+html, body { height: 100%; margin: 0; }
+body {
+  display: grid; place-items: center; overflow: hidden;
+  background: radial-gradient(circle at 50% 45%, var(--bg2), var(--bg1) 75%);
+  color: var(--ink); font-family: "Nunito", system-ui, sans-serif;
+}
+
+.stage { position: relative; width: min(96vw, 900px); height: min(86vh, 720px); touch-action: none; }
+
+/* Heart */
+#heart {
+  position: absolute; inset: 0; margin: auto; width: min(60%, 280px); aspect-ratio: 100 / 90; height: auto;
+  background: none; border: 0; padding: 0; cursor: pointer;
+  animation: beat 1.4s ease-in-out infinite;
+  filter: drop-shadow(0 0 22px rgba(255, 77, 121, .55));
+}
+#heart svg { width: 100%; height: 100%; }
+#heart:focus-visible { outline: 3px solid #fff; outline-offset: 8px; border-radius: 24px; }
+@keyframes beat { 0%,100% { scale: 1 } 15% { scale: 1.12 } 30% { scale: 1 } 45% { scale: 1.08 } }
+.open #heart { animation: burst .5s ease-in forwards; pointer-events: none; }
+@keyframes burst { to { scale: 1.7; opacity: 0; } }
+
+.hint {
+  position: absolute; left: 0; right: 0; bottom: 8%; text-align: center;
+  opacity: .8; transition: opacity .3s;
+}
+.open .hint { opacity: 0; }
+
+/* Bouquet canvas */
+#bouquet { position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0; transition: opacity 1s .3s; cursor: grab; }
+.open #bouquet { opacity: 1; }
+
+/* Popup */
+dialog {
+  border: 0; border-radius: 22px; padding: 30px 28px 24px; width: min(88vw, 340px);
+  background: #fff3f6; color: var(--plum); text-align: center;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, .45);
+}
+dialog[open] { animation: pop .45s cubic-bezier(.3, 1.5, .5, 1); }
+dialog::backdrop { background: rgba(20, 5, 30, .55); backdrop-filter: blur(3px); }
+@keyframes pop { from { transform: scale(.7); opacity: 0; } }
+dialog h2 { font-family: "Caveat", cursive; font-size: 2.2rem; margin: 0 0 8px; }
+dialog p { margin: 0 0 20px; line-height: 1.55; }
+.gif { display: block; width: 100%; max-height: 220px; object-fit: cover; border-radius: 14px; margin: 0 0 16px; }
+.row { display: flex; gap: 10px; justify-content: center; }
+.row button {
+  font: inherit; font-weight: 700; padding: 10px 18px; border-radius: 999px;
+  border: 2px solid var(--pink); cursor: pointer;
+}
+#close { background: var(--pink); color: #fff; }
+#replay { background: transparent; color: var(--pink); }
+.row button:focus-visible { outline: 3px solid var(--plum); outline-offset: 2px; }
+
+@media (prefers-reduced-motion: reduce) {
+  #heart { animation: none; }
+}
