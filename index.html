@@ -1,0 +1,401 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>A little something for my baby darling</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Caveat:wght@600&family=Nunito:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --bg1: #2b1238;
+        --bg2: #4a1d4f;
+        --ink: #fff3f6;
+        --plum: #4a1d4f;
+        --pink: #ff4d79;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        height: 100%;
+        margin: 0;
+      }
+      body {
+        display: grid;
+        place-items: center;
+        overflow: hidden;
+        background: radial-gradient(
+          circle at 50% 40%,
+          var(--bg2),
+          var(--bg1) 70%
+        );
+        color: var(--ink);
+        font-family: "Nunito", system-ui, sans-serif;
+      }
+      .stage {
+        position: relative;
+        width: min(90vw, 420px);
+        aspect-ratio: 4 / 5;
+      }
+
+      /* hearteu */
+      #heart {
+        position: absolute;
+        inset: 0;
+        margin: auto;
+        width: 70%;
+        height: 70%;
+        background: none;
+        border: 0;
+        padding: 0;
+        cursor: pointer;
+        animation: beat 1.4s ease-in-out infinite;
+        filter: drop-shadow(0 0 22px rgba(255, 77, 121, 0.55));
+      }
+      #heart svg {
+        width: 100%;
+        height: 100%;
+      }
+      #heart:focus-visible {
+        outline: 3px solid #fff;
+        outline-offset: 8px;
+        border-radius: 24px;
+      }
+      @keyframes beat {
+        0%,
+        100% {
+          scale: 1;
+        }
+        15% {
+          scale: 1.12;
+        }
+        30% {
+          scale: 1;
+        }
+        45% {
+          scale: 1.08;
+        }
+      }
+      .open #heart {
+        animation: burst 0.5s ease-in forwards;
+        pointer-events: none;
+      }
+      @keyframes burst {
+        to {
+          scale: 1.7;
+          opacity: 0;
+        }
+      }
+
+      .hint {
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 4%;
+        text-align: center;
+        font-size: 1rem;
+        opacity: 0.8;
+        transition: opacity 0.3s;
+      }
+      .open .hint {
+        opacity: 0;
+      }
+
+      /*flower🥰*/
+      #bouquet {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        margin: 0;
+        white-space: pre;
+        pointer-events: none;
+        font-family: "Courier New", ui-monospace, monospace;
+        font-weight: 700;
+        font-size: min(3.7vw, 17px);
+        line-height: 1.05;
+      }
+      .c {
+        opacity: 0;
+      }
+      .open .c {
+        animation: show 0.6s ease-out var(--d) forwards;
+      }
+      @keyframes show {
+        from {
+          opacity: 0;
+          filter: blur(5px);
+        }
+        to {
+          opacity: 1;
+          filter: blur(0);
+        }
+      }
+
+      .rose1 {
+        color: #ff4d79;
+        text-shadow: 0 0 8px #ff4d79;
+      }
+      .rose2 {
+        color: #ff8fb1;
+        text-shadow: 0 0 8px #ff8fb1;
+      }
+      .tulipA {
+        color: #ff8a65;
+        text-shadow: 0 0 8px #ff8a65;
+      }
+      .tulipB {
+        color: #ffd166;
+        text-shadow: 0 0 8px #ffd166;
+      }
+      .daisy {
+        color: #ffffff;
+        text-shadow: 0 0 8px #fff;
+      }
+      .yel {
+        color: #ffc83d;
+        text-shadow: 0 0 8px #ffc83d;
+      }
+      .stem {
+        color: #5fbf7a;
+      }
+      .wrap {
+        color: #ffb3c9;
+      }
+      .rib {
+        color: #ff4d79;
+      }
+
+      dialog {
+        border: 0;
+        border-radius: 22px;
+        padding: 30px 28px 24px;
+        width: min(88vw, 340px);
+        background: #fff3f6;
+        color: var(--plum);
+        text-align: center;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.45);
+      }
+      dialog[open] {
+        animation: pop 0.45s cubic-bezier(0.3, 1.5, 0.5, 1);
+      }
+      dialog::backdrop {
+        background: rgba(20, 5, 30, 0.55);
+        backdrop-filter: blur(3px);
+      }
+      @keyframes pop {
+        from {
+          transform: scale(0.7);
+          opacity: 0;
+        }
+      }
+      dialog h2 {
+        font-family: "Caveat", cursive;
+        font-size: 2.2rem;
+        margin: 0 0 8px;
+      }
+      dialog p {
+        margin: 0 0 20px;
+        line-height: 1.55;
+      }
+      .gif {
+        display: block;
+        width: 100%;
+        max-height: 220px;
+        object-fit: cover;
+        border-radius: 14px;
+        margin: 0 0 16px;
+      }
+      .row {
+        display: flex;
+        gap: 10px;
+        justify-content: center;
+      }
+      .row button {
+        font: inherit;
+        font-weight: 700;
+        padding: 10px 18px;
+        border-radius: 999px;
+        border: 2px solid var(--pink);
+        cursor: pointer;
+      }
+      #close {
+        background: var(--pink);
+        color: #fff;
+      }
+      #replay {
+        background: transparent;
+        color: var(--pink);
+      }
+      .row button:focus-visible {
+        outline: 3px solid var(--plum);
+        outline-offset: 2px;
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        * {
+          animation-duration: 0.01ms !important;
+          animation-delay: 0s !important;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="stage" id="stage">
+      <pre id="bouquet" aria-hidden="true"></pre>
+
+      <button id="heart" aria-label="Open your surprise">
+        <svg viewBox="0 0 100 90">
+          <path
+            d="M50 88C20 62 2 44 2 26 2 12 13 2 26 2c10 0 19 6 24 15 5-9 14-15 24-15 13 0 24 10 24 24 0 18-18 36-48 62z"
+            fill="#ff4d79"
+          />
+          <path
+            d="M22 14c-8 2-13 9-13 17"
+            fill="none"
+            stroke="#ffb3c6"
+            stroke-width="4"
+            stroke-linecap="round"
+          />
+        </svg>
+      </button>
+
+      <div class="hint">Tap the heart</div>
+    </div>
+
+    <!-- Edit the popup message and GIF here -->
+    <dialog id="msg">
+      <img
+        class="gif"
+        src="dudu-bubu.gif"
+        alt=""
+        onerror="this.style.display = 'none'"
+      />
+      <h2>Just for you</h2>
+      <p>
+        These flowers never wilt and never need watering. I hope they made you
+        smile today.
+      </p>
+      <div class="row">
+        <button id="close">Close</button>
+        <button id="replay">Replay</button>
+      </div>
+    </dialog>
+
+    <script>
+      const ROSE = [" .-@@-. ", "(@(@@)@)", " '-@@-' "];
+      const DAISY = [" \\ | / ", "--(O)--", " / | \\ "];
+      const TULIP = [",\\|/,", "|###|", "\\___/"];
+
+      const flowers = [
+        { art: ROSE, col: 16, row: 1, k: "rose1", d: 1.0 },
+        { art: DAISY, col: 3, row: 3, k: "daisy", d: 1.2, hl: { O: "yel" } },
+        { art: TULIP, col: 33, row: 3, k: "tulipA", d: 1.25 },
+        { art: TULIP, col: 11, row: 4, k: "tulipA", d: 1.15 },
+        { art: DAISY, col: 25, row: 5, k: "daisy", d: 1.3, hl: { O: "yel" } },
+        { art: DAISY, col: 17, row: 6, k: "daisy", d: 1.4, hl: { O: "yel" } },
+        { art: ROSE, col: 24, row: 8, k: "rose2", d: 1.5 },
+        { art: TULIP, col: 12, row: 9, k: "tulipB", d: 1.6 },
+      ];
+
+      const W = 40,
+        H = 26,
+        JOIN = 16;
+      const grid = Array.from({ length: H }, () => Array(W).fill(null));
+      const put = (r, c, ch, k, d) => {
+        if (grid[r] && c >= 0 && c < W) grid[r][c] = { ch, k, d };
+      };
+
+      // 1) stems: straight down, then slanting toward the center of the wrap
+      flowers.forEach((f) => {
+        const w = f.art[0].length,
+          cx = f.col + Math.floor(w / 2),
+          r0 = f.row + f.art.length;
+        const target = Math.round(20 + (cx - 20) * 0.4),
+          dx = target - cx,
+          n = Math.abs(dx);
+        for (let r = r0; r <= JOIN; r++) {
+          const k = Math.max(0, r - (JOIN - n)),
+            next = Math.max(0, r + 1 - (JOIN - n));
+          const ch = r === JOIN ? "|" : next > k ? (dx > 0 ? "\\" : "/") : "|";
+          put(
+            r,
+            cx + Math.sign(dx) * k,
+            ch,
+            "stem",
+            (0.3 + (JOIN - r) * 0.06).toFixed(2),
+          );
+        }
+      });
+
+      for (let r = 0; r <= 8; r++) {
+        const left = 10 + r,
+          right = 30 - r;
+        for (let c = left; c <= right; c++) {
+          const ch = c === left ? "\\" : c === right ? "/" : "~";
+          put(17 + r, c, ch, "wrap", (2.0 + r * 0.03).toFixed(2));
+        }
+      }
+      put(20, 19, "<", "rib", "2.2");
+      put(20, 20, "3", "rib", "2.2");
+
+      flowers.forEach((f) => {
+        const cx = f.art[0].length / 2,
+          cy = f.art.length / 2;
+        f.art.forEach((line, r) =>
+          [...line].forEach((ch, c) => {
+            if (ch === " ") return;
+            const delay =
+              f.d + 0.05 * (Math.abs(c - cx) + Math.abs(r - cy) * 2);
+            put(
+              f.row + r,
+              f.col + c,
+              ch,
+              (f.hl && f.hl[ch]) || f.k,
+              delay.toFixed(2),
+            );
+          }),
+        );
+      });
+
+      const esc = (ch) => (ch === "<" ? "&lt;" : ch === "&" ? "&amp;" : ch);
+      document.getElementById("bouquet").innerHTML = grid
+        .map((row) =>
+          row
+            .map((cell) =>
+              cell
+                ? `<span class="c ${cell.k}" style="--d:${cell.d}s">${esc(cell.ch)}</span>`
+                : " ",
+            )
+            .join(""),
+        )
+        .join("\n");
+
+      const stage = document.getElementById("stage");
+      const heart = document.getElementById("heart");
+      const dlg = document.getElementById("msg");
+      let timer;
+
+      heart.addEventListener("click", () => {
+        stage.classList.add("open");
+        heart.disabled = true;
+        timer = setTimeout(() => dlg.showModal(), 3200); // popup appears after the bloom
+      });
+
+      document.getElementById("close").onclick = () => dlg.close();
+
+      document.getElementById("replay").onclick = () => {
+        clearTimeout(timer);
+        dlg.close();
+        stage.classList.remove("open");
+        heart.disabled = false;
+        heart.focus();
+      };
+    </script>
+  </body>
+</html>
